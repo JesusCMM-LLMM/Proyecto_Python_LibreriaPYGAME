@@ -3,6 +3,7 @@
 ## Descripción de la aplicación
 
 Pokémon Matching Cards es un juego de matching cards desarrollado en Python con temática Pokémon. El jugador (mi sobrino) debe encontrar todas las parejas de cartas en el menor tiempo posible y con el menor número de intentos. El tablero contiene 16 cartas (8 parejas) dispuestas boca abajo. En cada turno se voltean dos cartas: si coinciden, permanecen visibles; si no, se vuelven a ocultar tras 1,5 segundos.
+
 Los recursos usados de Pokemon son assets gratuitos encontrados en: https://press.pokemon.com/en/Pokemon-Cafe-Mix/Focus/Pokemon-Cafe-Mix-artwork (don't sue me Nintendo)
 
 ---
