@@ -3,6 +3,7 @@
 ## Descripción de la aplicación
 
 Pokémon Matching Cards es un juego de matching cards desarrollado en Python con temática Pokémon. El jugador (mi sobrino) debe encontrar todas las parejas de cartas en el menor tiempo posible y con el menor número de intentos. El tablero contiene 16 cartas (8 parejas) dispuestas boca abajo. En cada turno se voltean dos cartas: si coinciden, permanecen visibles; si no, se vuelven a ocultar tras 1,5 segundos.
+Los recursos usados de Pokemon son assets gratuitos encontrados en: https://press.pokemon.com/en/Pokemon-Cafe-Mix/Focus/Pokemon-Cafe-Mix-artwork (don't sue me Nintendo)
 
 ---
 
@@ -27,6 +28,7 @@ El archivo `requirements.txt` contiene:
 ```
 pygame==2.6.1
 ```
+(Se deja el archivo requirements por buenas prácticas pero al ser sólo una librería podría ejecutarse `pip install pygame` y fin)
 
 ---
 
@@ -34,7 +36,7 @@ pygame==2.6.1
 
 Desde la carpeta raíz del proyecto ejecuta:
 
-```bash
+```
 python main.py
 ```
 
@@ -51,10 +53,11 @@ Proy_Python_Librerias/
 ├── main.py               # Punto de entrada de la aplicación
 ├── requirements.txt      # Dependencias externas
 ├── README.md
-├── assets/
-│   ├── images/           # Sprites de Pokémon, dorso de carta y fondo del tablero
-│   └── sounds/           # Efectos de sonido (.wav)
+|
 └── src/
+    ├── assets/
+    │   ├── images/           # Sprites de Pokémon, dorso de carta y fondo del tablero
+    │   └── sounds/           # Efectos de sonido (.wav)
     ├── __init__.py       # Paquete src, expone Card, Board y Game
     ├── card.py           # Clase Card: representa una carta individual
     ├── board.py          # Clase Board: gestiona el tablero y la lógica de juego
