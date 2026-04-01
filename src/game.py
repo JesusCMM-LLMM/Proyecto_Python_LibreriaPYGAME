@@ -196,7 +196,7 @@ class Game:
         segundos = int(self.tiempo_final if self.estado == ESTADO_FIN else self.board.tiempo_transcurrido)
         minutos = segundos // 60
         segs = segundos % 60
-        # Reloj dibujado con pygame.draw
+        # Reloj dibujado con pygame.draw, a lo penco (no me pilla el emoji)
         cx, cy = 36, 35
         pygame.draw.circle(self.pantalla, COLOR_TEXTO, (cx, cy), 12, 2)
         pygame.draw.line(self.pantalla, COLOR_TEXTO, (cx, cy), (cx, cy - 8), 2)   # minutero
@@ -213,7 +213,7 @@ class Game:
         self.pantalla.blit(surf_intentos, (ANCHO - surf_intentos.get_width() - 20, 20))
 
         # Parejas encontradas (centro)
-        texto_parejas = f"{self.board.parejas_encontradas} / 8 parejas"
+        texto_parejas = f"{self.board.parejas_encontradas} / {len(self.board.TIPOS_POKEMON)} parejas"
         surf_parejas = self.fuente_small.render(texto_parejas, True, COLOR_DORADO)
         self.pantalla.blit(surf_parejas, (ANCHO // 2 - surf_parejas.get_width() // 2, 25))
 

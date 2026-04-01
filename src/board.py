@@ -21,17 +21,7 @@ OFFSET_X = (ANCHO_VENTANA - ANCHO_TABLERO) // 2
 
 ESPERA_VOLTEO = 1.5          # Segundos que se ven dos cartas no emparejadas
 
-# Nombres de los 8 Pokémon — deben coincidir con los archivos en assets/images/
-TIPOS_POKEMON = [
-    "charmander",
-    "eevee",
-    "grookey",
-    "pikachu",
-    "piplup",
-    "squirtle",
-    "rowlett",
-    "togepi",
-]
+
 
 
 class Board:
@@ -42,6 +32,18 @@ class Board:
       - Controla la lógica de selección y emparejamiento
       - Lleva la cuenta de intentos y tiempo de partida
     """
+    # Nombres de los 8 Pokémon — deben coincidir con los archivos en assets/images/ (antes estaba fuera)
+
+    TIPOS_POKEMON = [
+    "charmander",
+    "eevee",
+    "grookey",
+    "pikachu",
+    "piplup",
+    "squirtle",
+    "rowlett",
+    "togepi",
+]
 
     def __init__(self, ruta_assets: str, sonido_volteo: pygame.mixer.Sound = None,
                  sonido_acierto: pygame.mixer.Sound = None):
@@ -81,7 +83,7 @@ class Board:
     @property
     def partida_completada(self) -> bool:
         """Devuelve True cuando todas las parejas han sido encontradas."""
-        return self.parejas_encontradas == len(TIPOS_POKEMON)
+        return self.parejas_encontradas == len(self.TIPOS_POKEMON)
 
     @property
     def tiempo_transcurrido(self) -> float:
@@ -205,7 +207,7 @@ class Board:
             imagenes["dorso"] = self._imagen_placeholder(CARD_SIZE, (80, 80, 80))
 
         # Cargamos cada frente de Pokémon
-        for tipo in TIPOS_POKEMON:
+        for tipo in self.TIPOS_POKEMON:
             try:
                 ruta = os.path.join(self.ruta_assets, f"card_{tipo}.png")
                 imagenes[tipo] = pygame.transform.scale(
@@ -237,7 +239,7 @@ class Board:
             Lista de objetos Card listos para usar
         """
         # Creamos dos cartas por cada tipo (la pareja)
-        tipos_barajados = TIPOS_POKEMON * 2
+        tipos_barajados = self.TIPOS_POKEMON * 2
         random.shuffle(tipos_barajados)
 
         cartas = []
