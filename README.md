@@ -141,3 +141,15 @@ Proy_Python_Librerias/
 **Causa:** La proporción de la imagen original no coincidía con la de la ventana del juego.
 
 **Solución:** Se recortó la imagen al cuadrado central (1259x1259 px) y se reescaló a 700x700 px, ajustando a continuación las dimensiones de la ventana para que coincidiesen exactamente con las del fondo.
+
+---
+ 
+### 6. Datos compartidos entre clases difíciles de mantener 
+ 
+**Problema:** La lista `TIPOS_POKEMON` estaba definida como constante global en `board.py`, lo que impedía acceder a ella desde `game.py` para mostrar el total de parejas dinámicamente en la UI.
+ 
+**Causa:** Al definirla fuera de la clase, el dato quedaba acoplado al módulo y no era accesible de forma limpia desde otras partes del código.
+ 
+**Solución:** Se movió `TIPOS_POKEMON` como atributo de clase dentro de `Board`, lo que permite acceder a ella desde `game.py` mediante `self.board.TIPOS_POKEMON`. Así el número total de parejas se calcula siempre con `len(self.board.TIPOS_POKEMON)` y si en el futuro se añaden o quitan Pokémon solo hay que modificar un único sitio.
+ 
+---
