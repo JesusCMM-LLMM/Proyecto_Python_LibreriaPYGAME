@@ -139,18 +139,19 @@ class Board:
                 carta.hover = False
 
     def dibujar(self, superficie: pygame.Surface):
-        if self.fondo:
-            ancho_fondo = self.fondo.get_width()
-            alto_fondo = self.fondo.get_height()
-            x = (ANCHO_VENTANA - ancho_fondo) // 2
-            y = (ALTO_VENTANA - alto_fondo) // 2
-            superficie.blit(self.fondo, (x, y))
         """
         Dibuja todas las cartas del tablero en la superficie indicada.
 
         Args:
             superficie -- pygame.Surface principal del juego
         """
+        if self.fondo:
+            ancho_fondo = self.fondo.get_width()
+            alto_fondo = self.fondo.get_height()
+            x = (ANCHO_VENTANA - ancho_fondo) // 2
+            y = (ALTO_VENTANA - alto_fondo) // 2
+            superficie.blit(self.fondo, (x, y))
+
         for carta in self.cartas:
             carta.dibujar(superficie)
 
