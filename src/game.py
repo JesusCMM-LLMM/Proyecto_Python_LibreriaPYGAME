@@ -9,8 +9,8 @@ from .card import CARD_SIZE
 # Configuración general de la ventana
 # -----------------------------------------------------------------------
 
-ANCHO = 700
-ALTO = 700
+ANCHO = 1000
+ALTO = 1000
 FPS = 60
 TITULO = "Pokémon Matching Cards"
 
@@ -68,9 +68,9 @@ class Game:
         self.sonido_victoria = self._cargar_sonido("victory.wav")
 
         # Botón de reinicio
-        self.btn_reinicio = self._cargar_imagen_ui("btn_reinicio.png", (180, 55))
+        self.btn_reinicio = self._cargar_imagen_ui("btn_reinicio.png", (400, 90))
         self.rect_btn_reinicio = pygame.Rect(
-            ANCHO // 2 - 90, ALTO - 68, 180, 55
+            ANCHO // 2 - 200, ALTO - 110, 400, 90
         )
 
         # Estado inicial

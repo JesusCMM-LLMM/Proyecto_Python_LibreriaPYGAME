@@ -10,14 +10,17 @@ from .card import Card, CARD_SIZE
 # -----------------------------------------------------------------------
 FILAS = 4
 COLUMNAS = 4
-MARGEN = 15
-OFFSET_Y = 110       # espacio para la barra superior
-ANCHO_VENTANA = 700 # para calcular el centrado
-ALTO_VENTANA = 700
+MARGEN = 25
+# OFFSET_Y = 110       # espacio para la barra superior
+ANCHO_VENTANA = 1000 # para calcular el centrado
+ALTO_VENTANA = 1000
 
 # Calculamos OFFSET_X para centrar el tablero horizontalmente
 ANCHO_TABLERO = COLUMNAS * CARD_SIZE[0] + (COLUMNAS - 1) * MARGEN
 OFFSET_X = (ANCHO_VENTANA - ANCHO_TABLERO) // 2
+
+ALTO_TABLERO = FILAS * CARD_SIZE[1] + (FILAS - 1) * MARGEN
+OFFSET_Y = 110 + (ALTO_VENTANA - 100 - ALTO_TABLERO) // 2 - 45
 
 ESPERA_VOLTEO = 1.5          # Segundos que se ven dos cartas no emparejadas
 
@@ -32,7 +35,7 @@ class Board:
       - Controla la lógica de selección y emparejamiento
       - Lleva la cuenta de intentos y tiempo de partida
     """
-    # Nombres de los 8 Pokémon — deben coincidir con los archivos en assets/images/ (antes estaba fuera)
+    # Nombres de los 8 Pokémon - archivos en assets/images/ (antes estaba fuera)
 
     TIPOS_POKEMON = [
     "charmander",
@@ -61,7 +64,7 @@ class Board:
         
 
         # Estado de selección
-        self.carta_seleccionada: Card | None = None   # Primera carta volteada
+        self.carta_seleccionada: Card | None = None    # Primera carta volteada
         self.esperando_volteo = False                  # True durante la pausa de 1.5s
         self.tiempo_espera = 0.0                       # Marca de tiempo del fallo
 
